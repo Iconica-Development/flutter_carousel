@@ -1,5 +1,5 @@
 import 'package:carousel/carousel.dart';
-import 'package:carousel/models/card_transform.dart';
+
 import 'package:carousel_example/pokemon.dart';
 import 'package:carousel_example/pokemon_card.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:carousel/models/card_transform.dart';
+import 'package:carousel/src/models/card_transform.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
