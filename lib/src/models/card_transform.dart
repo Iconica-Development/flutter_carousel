@@ -5,11 +5,21 @@ class CardTransform {
     this.y = 0,
     this.angle = 0,
     this.scale = 1,
-  });
+    this.opacity = 1.0,
+  })  : assert(
+          opacity >= 0,
+          'Opacity cannot be negative',
+        ),
+        assert(
+          opacity <= 1.0,
+          'Opacity needs to be between 0.0 and 1.0',
+        );
+
   double x;
   double y;
   double angle;
   double scale;
+  double opacity;
 
   /// [transitionPos] is a position value of a swipe for example.
   /// [other] is the position, scale, rotation
@@ -20,6 +30,7 @@ class CardTransform {
       y: _transformValue(y, other.y, transitionPos),
       angle: _transformValue(angle, other.angle, transitionPos),
       scale: _transformValue(scale, other.scale, transitionPos),
+      opacity: _transformValue(opacity, other.opacity, transitionPos),
     );
   }
 

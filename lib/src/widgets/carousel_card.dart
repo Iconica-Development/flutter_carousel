@@ -20,7 +20,10 @@ class CarouselCard extends StatelessWidget {
         angle: cardTransform.angle,
         child: Transform.scale(
           scale: cardTransform.scale,
-          child: child,
+          child: Opacity(
+            opacity: cardTransform.opacity,
+            child: child,
+          ),
         ),
       ),
     );
