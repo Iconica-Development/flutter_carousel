@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 Iconica
+//
+// SPDX-License-Identifier: BSD-3-Clause
+
 import 'package:carousel/src/models/card_transform.dart';
 import 'package:carousel/src/widgets/carousel_card.dart';
 import 'package:flutter/gestures.dart';
