@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+import 'package:carousel_example/pokemon_types.dart';
+
 class Pokemon {
   Pokemon({
     required this.name,
@@ -10,5 +12,5 @@ class Pokemon {
   });
   String name;
   int nr;
-  List<String> types = const [];
+  List<PokemonType> types = const [];
 }

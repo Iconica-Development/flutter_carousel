@@ -6,6 +6,7 @@ import 'package:carousel/carousel.dart';
 
 import 'package:carousel_example/pokemon.dart';
 import 'package:carousel_example/pokemon_card.dart';
+import 'package:carousel_example/pokemon_types.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:math' as math;
@@ -25,14 +26,65 @@ class _CarouselExampleAppState extends State<CarouselExampleApp> {
   Pokemon? selected;
 
   final List<Pokemon> pokemons = [
-    Pokemon(name: 'Bulbasaur', nr: 1, types: ['grass', 'poison']),
-    Pokemon(name: 'Charmander', nr: 4, types: ['fire']),
-    Pokemon(name: 'Squirtle', nr: 7, types: ['water']),
-    Pokemon(name: 'Caterpie', nr: 10, types: ['bug']),
-    Pokemon(name: 'Pidgey', nr: 16, types: ['normal', 'flying']),
-    Pokemon(name: 'Pikachu', nr: 25, types: ['electric']),
-    Pokemon(name: 'Machop', nr: 66, types: ['fighting']),
-    Pokemon(name: 'Geodude', nr: 74, types: ['rock', 'ground']),
+    Pokemon(
+      name: 'Bulbasaur',
+      nr: 1,
+      types: [
+        PokemonType.grass,
+        PokemonType.poison,
+      ],
+    ),
+    Pokemon(
+      name: 'Charmander',
+      nr: 4,
+      types: [
+        PokemonType.fire,
+      ],
+    ),
+    Pokemon(
+      name: 'Squirtle',
+      nr: 7,
+      types: [
+        PokemonType.water,
+      ],
+    ),
+    Pokemon(
+      name: 'Caterpie',
+      nr: 10,
+      types: [
+        PokemonType.bug,
+      ],
+    ),
+    Pokemon(
+      name: 'Pidgey',
+      nr: 16,
+      types: [
+        PokemonType.normal,
+        PokemonType.flying,
+      ],
+    ),
+    Pokemon(
+      name: 'Pikachu',
+      nr: 25,
+      types: [
+        PokemonType.electric,
+      ],
+    ),
+    Pokemon(
+      name: 'Machop',
+      nr: 66,
+      types: [
+        PokemonType.fighting,
+      ],
+    ),
+    Pokemon(
+      name: 'Geodude',
+      nr: 74,
+      types: [
+        PokemonType.rock,
+        PokemonType.ground,
+      ],
+    ),
   ];
 
   Widget _buildCard(BuildContext context, int index) {
@@ -54,7 +106,8 @@ class _CarouselExampleAppState extends State<CarouselExampleApp> {
         body: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            SafeArea(
+            Padding(
+              padding: const EdgeInsets.all(16.0),
               child: ListView(
                 children: [
                   const SizedBox(height: 50),
@@ -125,7 +178,7 @@ class _CarouselExampleAppState extends State<CarouselExampleApp> {
             ),
             if (selected != null)
               Padding(
-                padding: const EdgeInsets.only(bottom: 10),
+                padding: const EdgeInsets.only(bottom: 20),
                 child: Text('Clicked: ${selected!.name}'),
               ),
           ],

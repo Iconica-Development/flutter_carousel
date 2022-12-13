@@ -1,18 +1,18 @@
+[![pub package](https://img.shields.io/pub/v/flutter_carousel.svg)](https://github.com/Iconica-Development) [![Build status](https://img.shields.io/github/workflow/status/Iconica-Development/flutter_carousel/CI)](https://github.com/Iconica-Development/flutter_carousel/actions/new) [![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/tenhobi/effective_dart)
+
 # Carousel
 Carousel widget. Makes it easier to create card carousels using a list of transforms.
 Each card can change its rotation, position and scale when swiping the cards.
 
-Supports all platforms.
-
-![Demo video](demo.gif)
+![Carousel GIF](carousel.gif)
 
 ## Usage
 
-To use this package, add `carousel` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/platform-integration/platform-channels).
+To use this package, add `carousel` as a dependency in your pubspec.yaml file.
 
-### Example
+## How to use
 
-See [Example Code](example/lib/main.dart) for more info.
+See the [Example Code](example/lib/main.dart) for an example on how to use this package.
 
 ## Issues
 
@@ -24,4 +24,4 @@ If you would like to contribute to the plugin (e.g. by improving the documentati
 
 ## Author
 
-This carousel for Flutter is developed by [Iconica](https://iconica.nl). You can contact us at <support@iconica.nl>
+This `carousel` for Flutter is developed by [Iconica](https://iconica.nl). You can contact us at <support@iconica.nl>
