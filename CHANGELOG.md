@@ -1,3 +1,6 @@
+## 0.3.0
+* Added option for backwards infinite scrolling and intial page
+
 ## 0.1.0
 
 * add opacity as an option to the card transform
