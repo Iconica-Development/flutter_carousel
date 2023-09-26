@@ -21,6 +21,8 @@ class Carousel extends StatefulWidget {
     this.onPageChanged,
     this.alignment = AlignmentDirectional.topStart,
     this.onCardClick,
+    this.initialPage = 0,
+    this.allowInfiniteScrollingBackwards = false,
     Key? key,
   }) : super(key: key);
 
@@ -46,16 +48,29 @@ class Carousel extends StatefulWidget {
   /// Size of the pageview used to capture swipe gestures.
   final double pageViewHeight;
 
+  /// The page to show when first creating the [Carousel].
+  final int initialPage;
+
+  /// Whether to allow infinite scrolling backwards. Defaults to false. If true, this works by using a very large number of pages (10000). Works in conjunction with [initialPage].
+  final bool allowInfiniteScrollingBackwards;
+
   @override
   State<Carousel> createState() => _CarouselState();
 }
 
 class _CarouselState extends State<Carousel> {
-  final PageController _pageController = PageController(initialPage: 0);
+  late PageController _pageController;
   double _currentPage = 0;
 
   @override
   void initState() {
+    _pageController = PageController(
+      initialPage: widget.allowInfiniteScrollingBackwards
+          ? 10000 + widget.initialPage
+          : widget.initialPage,
+    );
+    _currentPage = _pageController.initialPage.toDouble();
+
     _pageController.addListener(() {
       _currentPage = _pageController.page!;
     });
