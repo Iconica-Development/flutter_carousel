@@ -6,6 +6,9 @@ Each card can change its rotation, position and scale when swiping the cards.
 
 ![Carousel GIF](carousel.gif)
 
+Figma Design that defines this component (only accessible for Iconica developers): https://www.figma.com/file/4WkjwynOz5wFeFBRqTHPeP/Iconica-Design-System?type=design&node-id=357%3A3335&mode=design&t=XulkAJNPQ32ARxWh-1
+
+
 ## Usage
 
 To use this package, add `carousel` as a dependency in your pubspec.yaml file.
