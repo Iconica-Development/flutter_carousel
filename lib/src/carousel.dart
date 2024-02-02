@@ -11,7 +11,8 @@ typedef CarouselCardBuilder = Widget Function(BuildContext context, int index);
 
 class Carousel extends StatefulWidget {
   /// Animated cards by swiping.
-  /// Each card can change its rotation, position and scale when swiping the cards.
+  /// Each card can change its rotation, position
+  /// and scale when swiping the cards.
   /// Transform path can be privided using [transforms]
   const Carousel({
     required this.transforms,
@@ -23,8 +24,8 @@ class Carousel extends StatefulWidget {
     this.onCardClick,
     this.initialPage = 0,
     this.allowInfiniteScrollingBackwards = false,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   /// A list of transforms to calculate the position of the card when swiping.
   /// Every item in the list is one of the possible card positions.
@@ -33,7 +34,8 @@ class Carousel extends StatefulWidget {
   /// The index of the transform card which acts as the selected card.
   final int selectableCardId;
 
-  /// Builder for the card given a [context] and a [index] to identify the right card.
+  /// Builder for the card given a [context] and a [index] to
+  /// identify the right card.
   final CarouselCardBuilder builder;
 
   /// Called when selected card is changed to the next one.
@@ -51,7 +53,9 @@ class Carousel extends StatefulWidget {
   /// The page to show when first creating the [Carousel].
   final int initialPage;
 
-  /// Whether to allow infinite scrolling backwards. Defaults to false. If true, this works by using a very large number of pages (10000). Works in conjunction with [initialPage].
+  /// Whether to allow infinite scrolling backwards. Defaults to false. If true,
+  /// this works by using a very large number of pages (10000).
+  /// Works in conjunction with [initialPage].
   final bool allowInfiniteScrollingBackwards;
 
   @override
@@ -84,38 +88,36 @@ class _CarouselState extends State<Carousel> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: widget.alignment,
-      children: [
-        AnimatedBuilder(
-          animation: _pageController,
-          builder: (context, _) {
-            final transitionPos = _currentPage % 1;
-            final index = _currentPage.floor();
-            final length = widget.transforms.length - 1;
+  Widget build(BuildContext context) => Stack(
+        alignment: widget.alignment,
+        children: [
+          AnimatedBuilder(
+            animation: _pageController,
+            builder: (context, _) {
+              var transitionPos = _currentPage % 1;
+              var index = _currentPage.floor();
+              var length = widget.transforms.length - 1;
 
-            return Stack(
-              children: [
-                for (var i = 0; i < length; i++) ...[
-                  CarouselCard(
-                    cardTransform: widget.transforms[i]
-                        .transform(widget.transforms[i + 1], transitionPos),
-                    child: widget.builder.call(context, index - i),
-                  ),
+              return Stack(
+                children: [
+                  for (var i = 0; i < length; i++) ...[
+                    CarouselCard(
+                      cardTransform: widget.transforms[i]
+                          .transform(widget.transforms[i + 1], transitionPos),
+                      child: widget.builder.call(context, index - i),
+                    ),
+                  ],
                 ],
-              ],
-            );
-          },
-        ),
-        SizedBox(
-          height: widget.pageViewHeight,
-          child: PageView.builder(
-            scrollBehavior: _MouseSwipeOnWeb(),
-            onPageChanged: widget.onPageChanged,
-            controller: _pageController,
-            itemBuilder: (context, index) {
-              return Visibility(
+              );
+            },
+          ),
+          SizedBox(
+            height: widget.pageViewHeight,
+            child: PageView.builder(
+              scrollBehavior: _MouseSwipeOnWeb(),
+              onPageChanged: widget.onPageChanged,
+              controller: _pageController,
+              itemBuilder: (context, index) => Visibility(
                 visible: false,
                 maintainState: true,
                 maintainAnimation: true,
@@ -135,13 +137,11 @@ class _CarouselState extends State<Carousel> {
                     ),
                   ],
                 ),
-              );
-            },
+              ),
+            ),
           ),
-        ),
-      ],
-    );
-  }
+        ],
+      );
 }
 
 class _MouseSwipeOnWeb extends MaterialScrollBehavior {

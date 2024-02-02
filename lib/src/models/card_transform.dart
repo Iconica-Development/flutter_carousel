@@ -28,15 +28,14 @@ class CardTransform {
   /// [transitionPos] is a position value of a swipe for example.
   /// [other] is the position, scale, rotation
   /// which the current [CardTransform] need to be transformed to.
-  CardTransform transform(CardTransform other, double transitionPos) {
-    return CardTransform(
-      x: _transformValue(x, other.x, transitionPos),
-      y: _transformValue(y, other.y, transitionPos),
-      angle: _transformValue(angle, other.angle, transitionPos),
-      scale: _transformValue(scale, other.scale, transitionPos),
-      opacity: _transformValue(opacity, other.opacity, transitionPos),
-    );
-  }
+  CardTransform transform(CardTransform other, double transitionPos) =>
+      CardTransform(
+        x: _transformValue(x, other.x, transitionPos),
+        y: _transformValue(y, other.y, transitionPos),
+        angle: _transformValue(angle, other.angle, transitionPos),
+        scale: _transformValue(scale, other.scale, transitionPos),
+        opacity: _transformValue(opacity, other.opacity, transitionPos),
+      );
 
   double _transformValue(double valueA, double valueB, double transformPos) =>
       valueA - ((valueA - valueB) * transformPos);
