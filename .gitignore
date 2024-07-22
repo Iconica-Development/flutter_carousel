@@ -21,3 +21,7 @@ doc/api/
 *.js.map
 
 .idea
+
+# FVM Version Cache
+.fvm/
+.fvmrc
